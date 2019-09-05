@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function Post()
+    {
+        return $this->hasOne('\App\Post', 'user_id', 'id');
+    }
+
+    public function title()
+    {
+        return $this->hasOne('\App\Post', 'user_id', 'id')->addSelect(['title']);
+    }
 }

@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\DB;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //sql调试
+        $sql_debug = config('database.sql_debug');
+        if ($sql_debug) {
+
+        }
+        DB::listen(function ($query) {
+            echo $query->sql;
+            // $query->bindings
+            // $query->time
+        });
     }
 }
