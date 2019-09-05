@@ -14,3 +14,19 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('posts', 'PostsController@index');
+Route::get('posts/search', 'PostsController@search');
+Route::get('posts/searchlist', 'PostsController@searchlist');
+Route::get('users/searchlist', 'UsersController@searchlist');
+
+Route::get('posts/show', 'PostsController@show');
+
+Route::get('posts/create', 'PostsController@create');
+Route::post('posts', 'PostsController@store');
+
+Route::get('posts/{post}/edit', 'PostsController@edit');
+Route::put('posts/{post}', 'PostsController@update');
+
+Route::get('posts/delete', 'PostsController@delete');
+
+
